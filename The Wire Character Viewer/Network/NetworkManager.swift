@@ -35,13 +35,8 @@ class NetworkManager: NetworkProvider {
         guard let endPoint = endPointURL else {
             throw SimpsonsError.incorrectURL
         }
-        
-        var request = URLRequest(url: endPoint)
-        request.httpMethod = "GET"
-       
 
         let (data, response) = try await URLSession.shared.data(from: endPoint)
-        
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             throw SimpsonsError.responseError

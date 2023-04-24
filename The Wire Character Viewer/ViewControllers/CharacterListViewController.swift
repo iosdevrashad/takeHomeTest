@@ -89,7 +89,6 @@ extension CharacterListViewController: UITableViewDataSource, UITableViewDelegat
         if UIDevice.current.userInterfaceIdiom == .phone {
             navigationController?.pushViewController(detailedVC, animated: true)
         }
-    
     }
 }
 
@@ -104,7 +103,6 @@ extension CharacterListViewController: UISearchBarDelegate {
             self.viewModel.characters = self.viewModel.characters.filter { $0.characterFullDescription.lowercased().contains(filter.lowercased()) }
             self.tableView.reloadData()
         })
-  
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

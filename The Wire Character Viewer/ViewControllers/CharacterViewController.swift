@@ -16,12 +16,9 @@ class CharacterViewController: UISplitViewController {
         super.viewDidLoad()
         loadViewControllers()
         primaryViewController.reloadData()
-
     }
     
-
     private var primaryViewController: CharacterListViewController!
-    
     
     private func loadViewControllers() {
         self.primaryViewController = CharacterListViewController()
