@@ -65,7 +65,6 @@ class CharacterListViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = true
         navigationItem.searchController = searchController
     }
-    
 }
 
 extension CharacterListViewController: UITableViewDataSource, UITableViewDelegate {

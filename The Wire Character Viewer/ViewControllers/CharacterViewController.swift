@@ -29,6 +29,7 @@ class CharacterViewController: UISplitViewController {
         let navController = UINavigationController(rootViewController: self.primaryViewController)
         viewModel = primaryViewController.viewModel
         let detail = DetailViewController()
+        detail.networkProvider = NetworkManager()
         
         self.viewControllers = [navController, detail]
         

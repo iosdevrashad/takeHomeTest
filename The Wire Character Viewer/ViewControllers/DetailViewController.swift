@@ -24,6 +24,8 @@ class DetailViewController: UIViewController {
     func configure(character: RelatedTopic) {
         titleLabel.text = character.characterFullDescription.getCharacterName()
         titleLabel.font = .boldSystemFont(ofSize: 19)
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFit
         if character.icon.characterImgUrl.isEmpty {
             imageView.image = UIImage(named: "NO IMAGE")?.imageResized(to: CGSize(width: 250, height: 250))
         } else {
@@ -31,9 +33,6 @@ class DetailViewController: UIViewController {
                 imageView.image = await networkProvider?.downloadImage(from: "https://duckduckgo.com"+character.icon.characterImgUrl)?.imageResized(to: CGSize(width: 150, height: 150))
             }
         }
-        
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleToFill
         descriptionLabel.numberOfLines = 0
         descriptionLabel.text = character.characterFullDescription.getCharacterDescription()
     }
