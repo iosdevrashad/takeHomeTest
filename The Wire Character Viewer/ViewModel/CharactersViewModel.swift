@@ -10,6 +10,9 @@ import Combine
 
 class CharactersViewModel: ObservableObject {
     @Published var characters = [RelatedTopic]()
+    
+    @Published var character: RelatedTopic?
+    
     private let networkProvider: NetworkProvider
     
     init(networkProvider: NetworkProvider) {

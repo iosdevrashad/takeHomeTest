@@ -8,13 +8,22 @@
 import UIKit
 import Combine
 
+protocol CharacterListViewControllerDelegate: AnyObject {
+    func displayCharacter(character: RelatedTopic)
+}
+
 class CharacterListViewController: UIViewController {
     private let tableView = UITableView(frame: .zero, style: .plain)
     
     private var cancellables = Set<AnyCancellable>()
     
-    private let viewModel = CharactersViewModel(networkProvider: NetworkManager())
+    let viewModel = CharactersViewModel(networkProvider: NetworkManager())
     
+    var delegate: CharacterListViewControllerDelegate?
+    
+    func reloadData() {
+        tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +31,7 @@ class CharacterListViewController: UIViewController {
         bindViewModel()
         viewModel.getCharacters()
         configureUI()
+        configureSearchController()
     }
     
     private func bindViewModel() {
@@ -45,9 +55,17 @@ class CharacterListViewController: UIViewController {
         tableView.rowHeight = 80
         tableView.delegate = self
         tableView.dataSource = self
-        
         tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.indentifier)
     }
+    
+    func configureSearchController() {
+        let searchController = UISearchController()
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search Character"
+        searchController.obscuresBackgroundDuringPresentation = true
+        navigationItem.searchController = searchController
+    }
+    
 }
 
 extension CharacterListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -67,8 +85,32 @@ extension CharacterListViewController: UITableViewDataSource, UITableViewDelegat
         let character = viewModel.characters[indexPath.row]
         detailedVC.configure(character: character)
         detailedVC.networkProvider = NetworkManager()
-        navigationController?.pushViewController(detailedVC, animated: true)
-     
+        delegate?.displayCharacter(character: character)
+        viewModel.character = character
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            navigationController?.pushViewController(detailedVC, animated: true)
+        }
+    
+    }
+}
+
+extension CharacterListViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        var timer: Timer?
+        guard let filter = searchBar.text, !filter.isEmpty else { return }
+        
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            self.viewModel.characters = self.viewModel.characters.filter { $0.characterFullDescription.lowercased().contains(filter.lowercased()) }
+            self.tableView.reloadData()
+        })
+  
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.getCharacters()
+        self.tableView.reloadData()
     }
 }
 

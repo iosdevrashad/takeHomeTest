@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC2CAD3D29F7242400DCFBB3 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2CAD3C29F7242400DCFBB3 /* CharacterViewController.swift */; };
+		DC2CAD3E29F7242400DCFBB3 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2CAD3C29F7242400DCFBB3 /* CharacterViewController.swift */; };
 		DC41D74929F6137700484340 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC41D74829F6137700484340 /* AppDelegate.swift */; };
 		DC41D74B29F6137700484340 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC41D74A29F6137700484340 /* SceneDelegate.swift */; };
 		DC41D74D29F6137700484340 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC41D74C29F6137700484340 /* ViewController.swift */; };
@@ -38,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC2CAD3C29F7242400DCFBB3 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		DC41D74529F6137700484340 /* The Wire Character Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Wire Character Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC41D74829F6137700484340 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC41D74A29F6137700484340 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 			children = (
 				DC41D78B29F617FC00484340 /* CharacterListViewController.swift */,
 				DC41D78C29F617FC00484340 /* DetailViewController.swift */,
+				DC2CAD3C29F7242400DCFBB3 /* CharacterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -293,6 +297,7 @@
 				DC41D79929F61A1D00484340 /* CharactersViewModel.swift in Sources */,
 				DC41D78E29F617FC00484340 /* DetailViewController.swift in Sources */,
 				DC41D79729F6185600484340 /* String+Extensions.swift in Sources */,
+				DC2CAD3D29F7242400DCFBB3 /* CharacterViewController.swift in Sources */,
 				DC41D74D29F6137700484340 /* ViewController.swift in Sources */,
 				DC41D77B29F615D500484340 /* TheWireCharacterViewerConfig.swift in Sources */,
 				DC41D79B29F6BBB400484340 /* UIImage+Resize.swift in Sources */,
@@ -312,6 +317,7 @@
 				DC41D77629F6153500484340 /* ViewController.swift in Sources */,
 				DC41D79829F6185F00484340 /* String+Extensions.swift in Sources */,
 				DC41D78929F617BE00484340 /* CharactersViewModel.swift in Sources */,
+				DC2CAD3E29F7242400DCFBB3 /* CharacterViewController.swift in Sources */,
 				DC41D77429F614EE00484340 /* AppDelegate.swift in Sources */,
 				DC41D78529F6175100484340 /* SimpsonsResult.swift in Sources */,
 				DC41D79C29F6C10000484340 /* UIImage+Resize.swift in Sources */,

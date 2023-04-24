@@ -17,8 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window                      = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene         = windowScene
-        window?.rootViewController  = ViewController()
+        window?.rootViewController  = UIDevice.current.userInterfaceIdiom == .pad ? CharacterViewController() : UINavigationController(rootViewController: CharacterListViewController())
         window?.makeKeyAndVisible()
+        self.configureSplitVC()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -50,5 +51,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
+}
+
+extension SceneDelegate: UISplitViewControllerDelegate {
+    func configureSplitVC() {
+        guard let splitViewController = self.window?.rootViewController as? UISplitViewController else { return }
+        
+        splitViewController.delegate = self
+        splitViewController.preferredDisplayMode = UISplitViewController.DisplayMode.oneBesideSecondary
+    }
+    
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return true
+    }
 }
 
