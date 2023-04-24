@@ -22,8 +22,6 @@ class CharacterListViewController: UIViewController {
         bindViewModel()
         viewModel.getCharacters()
         configureUI()
-        
-        
     }
     
     private func bindViewModel() {
@@ -50,10 +48,6 @@ class CharacterListViewController: UIViewController {
         
         tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.indentifier)
     }
-
-    
-
-
 }
 
 extension CharacterListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -76,7 +70,5 @@ extension CharacterListViewController: UITableViewDataSource, UITableViewDelegat
         navigationController?.pushViewController(detailedVC, animated: true)
      
     }
-    
-
 }
 
