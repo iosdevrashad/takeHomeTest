@@ -1,4 +1,4 @@
-# The Wire Character/ Simpsons Viewer.
+The Wire Simpsons/The Wire Character Viewer.
 
 App Requirements
 Your app should be written entirely in either Swift for iOS, or Kotlin for Android. Try to demonstrate your knowledge of both basic and advanced
